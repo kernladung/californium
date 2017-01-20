@@ -30,7 +30,7 @@ A standalone application menu based on xdg and qt, notably for openbox, awesome,
 
 *californium* uses [clang](http://clang.llvm.org/) as compiler, [g++](https://gcc.gnu.org/) as linker and [ninja](https://github.com/ninja-build/ninja) as build-tool. 
 
-To build *lead* open terminal in the root folder of the repository and:
+To build *californium* open terminal in the root folder of the repository and:
 
     $ ninja
 
@@ -70,7 +70,7 @@ Used config-files and theme-files are monitored and changes are applied automati
 
 ### Predefined menu-file
 
-[sulfur](https://github.com/kernladung/sulfur) provides a predefined menu-file and directory-files that work well with californium. To use an existing or new menu-file simply point to this menu-file in the conf-file.
+[sulfur](https://github.com/kernladung/sulfur) provides a predefined menu-file and directory-files that work well with *californium*. To use an existing or new menu-file simply point to this menu-file in the conf-file.
 
 Menu-files are typically placed in `/etc/xdg/menus/`. Directory-files are typically placed in `/usr/share/desktop-directories`.
 
