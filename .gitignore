@@ -1,0 +1,4 @@
+.vscode
+build/*.cpp
+build/*.o
+.ninja*

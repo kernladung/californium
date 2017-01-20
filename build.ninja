@@ -1,0 +1,20 @@
+
+includes = -Isrc -I/usr/include -I/usr/include/qt -I/usr/include/qt/QtWidgets -I/usr/include/qt/QtGui -I/usr/include/qt/QtDBus -I/usr/include/qt/QtCore
+
+
+rule cpp
+    depfile = $out.d
+    command = clang -std=c++11 -Wall -O3 -fPIC -MMD -MF $out.d $includes -c $in -o $out
+
+rule link
+    command = g++ -o $out $in -lQt5Xdg -lQt5Widgets -lQt5Gui -lQt5DBus -lQt5Core
+
+rule moc
+    command = moc $includes -o $out $in
+
+
+build build/moc_californium.cpp: moc src/californium.h
+build build/main.o: cpp src/main.cpp
+build build/californium.o: cpp src/californium.cpp
+build build/moc_californium.o: cpp build/moc_californium.cpp
+build build/kernladung.californium: link build/californium.o build/main.o build/moc_californium.o

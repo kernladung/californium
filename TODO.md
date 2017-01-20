@@ -1,0 +1,1 @@
+- set icontheme via option in conf-file
