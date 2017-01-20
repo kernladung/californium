@@ -1,7 +1,3 @@
-# ATTENTION
-Recent versions of the generated makefile may try to delete system files on `sudo make uninstall`! Dont use existing cmake-files and delete generated makefiles! I switched the build-system to ninja.
-
-# -
 A standalone application menu based on xdg and qt, notably for openbox, awesome, i3 and other window managers without a automatic xdg menu.
 
 ##### californium with default-theme and arc-icon-theme
@@ -32,7 +28,9 @@ A standalone application menu based on xdg and qt, notably for openbox, awesome,
 
 # Build it
 
-*californium* uses [ninja](https://github.com/ninja-build/ninja) as build-tool. Open terminal in the root folder of the repository and:
+*californium* uses [clang](http://clang.llvm.org/) as compiler, [g++](https://gcc.gnu.org/) as linker and [ninja](https://github.com/ninja-build/ninja) as build-tool. 
+
+To build *lead* open terminal in the root folder of the repository and:
 
     $ ninja
 
@@ -49,6 +47,8 @@ A build `kernladung.californium` is provided in the build dir. It was build on m
 
 
 # Install it
+
+(in development, currently does not work!)
 
     $ sudo ninja install
 
