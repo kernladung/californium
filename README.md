@@ -1,7 +1,7 @@
 A standalone application menu based on xdg and qt, notably for openbox, awesome, i3 and other window managers without a automatic xdg menu.
 
 ##### californium with default-theme and arc-icon-theme
-![Screenshot of californium](https://github.com/nukura/californium/blob/master/screenshot.png)
+![Screenshot of californium](https://github.com/kernladung/californium/blob/master/screenshot.png)
 
 
 
