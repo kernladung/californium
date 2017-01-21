@@ -34,7 +34,7 @@ SOFTWARE.
 #include <QXmlStreamReader>
 
 
-namespace kernladung {
+namespace mlde {
 
 
 class Californium : public QApplication

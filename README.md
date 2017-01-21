@@ -1,7 +1,7 @@
 A standalone application menu based on xdg and qt, notably for openbox, awesome, i3 and other window managers without a automatic xdg menu.
 
 ##### californium with default-theme and arc-icon-theme
-![Screenshot of californium](https://github.com/kernladung/californium/blob/master/screenshot.png)
+![Screenshot of californium](https://github.com/mlde/californium/blob/master/screenshot.png)
 
 
 
@@ -18,7 +18,7 @@ A standalone application menu based on xdg and qt, notably for openbox, awesome,
 
 # Get it
 
-- clone the repository with `$ git clone https://github.com/kernladung/sulfur`
+- clone the repository with `$ git clone https://github.com/mlde/californium.git`
 
 **or**
 
@@ -30,7 +30,7 @@ A standalone application menu based on xdg and qt, notably for openbox, awesome,
 
 *californium* uses [clang](http://clang.llvm.org/) as compiler, [g++](https://gcc.gnu.org/) as linker and [ninja](https://github.com/ninja-build/ninja) as build-tool. 
 
-To build *californium* open terminal in the root folder of the repository and:
+To build *californium* open a terminal in the root folder of the repository and:
 
     $ ninja
 
@@ -43,7 +43,7 @@ To build *californium* open terminal in the root folder of the repository and:
 
 ### Build
 
-A build `kernladung.californium` is provided in the build dir. It was build on my arch64 system.
+A build `mlde.californium` is provided in the build dir. It was build on my arch64 system.
 
 
 # Install it
@@ -57,26 +57,26 @@ A build `kernladung.californium` is provided in the build dir. It was build on m
 
 *californium* will look for the following conf-files. The first one found will be used. 
 
-    ~/.config/kernladung/californium.conf
-    /etc/xdg/kernladung/californium.conf
+    ~/.config/mlde/californium.conf
+    /etc/xdg/mlde/californium.conf
 
-If none of these exists, it will create `~/.config/kernladung/californium.conf` with default values:
+If none of these exists, it will create `~/.config/mlde/californium.conf` with default values:
 
     menu=/etc/xdg/menus/sulfur-applications.menu
-    theme=/usr/share/kernladung/californium/themes/default.qss
+    theme=/usr/share/mlde/californium/themes/default.qss
 
 Used config-files and theme-files are monitored and changes are applied automatically.
 
 
 ### Predefined menu-file
 
-[sulfur](https://github.com/kernladung/sulfur) provides a predefined menu-file and directory-files that work well with *californium*. To use an existing or new menu-file simply point to this menu-file in the conf-file.
+[sulfur](https://github.com/mlde/sulfur) provides a predefined menu-file and directory-files that work well with *californium*. To use an existing or new menu-file simply point to this menu-file in the conf-file.
 
 Menu-files are typically placed in `/etc/xdg/menus/`. Directory-files are typically placed in `/usr/share/desktop-directories`.
 
 
 ### Themes
-In the default-conf the path to the theme is set to `/usr/share/kernladung/californium/themes/default/default.qss`. You can simply change that path in the conf-file ie `~/.config/kernladung/californium.conf`. Any url's in the qss may be relative to the path of the qss-file.
+In the default-conf the path to the theme is set to `/usr/share/mlde/californium/themes/default/default.qss`. You can simply change that path in the conf-file ie `~/.config/mlde/californium.conf`. Any url's in the qss may be relative to the path of the qss-file.
 
 See http://doc.qt.io/qt-5/stylesheet-examples.html#customizing-qmenu for specific and http://doc.qt.io/qt-5/stylesheet-syntax.html for general reference.
 
@@ -91,15 +91,15 @@ See https://wiki.archlinux.org/index.php/qt#Configuration_of_Qt5_apps_under_envi
 
 # Run it
 
-*californium* provides the binary `kernladung.californium` which starts a QT Application without a visible GUI, but with the application menu. It then listens to a specific DBus Signal to toggle this menu. The signal can be send with `kernladung.californium toggle`, the menu pops up.
+*californium* provides the binary `mlde.californium` which starts a QT Application without a visible GUI, but with the application menu. It then listens to a specific DBus Signal to toggle this menu. The signal can be send with `mlde.californium toggle`, the menu pops up.
 
 Start *californium* as background process:
 
-    $ kernladung.californium &
+    $ mlde.californium &
 
 Send signal to toggle/show menu:
 
-    $ kernladung.californium toggle
+    $ mlde.californium toggle
 
 
 
@@ -111,7 +111,7 @@ To replace the build-in menu in openbox with *californium*, do this:
 
 Add entry to `~/.config/openbox/autostart`:
 
-    kernladung.californium &
+    mlde.californium &
 
 ### Mouse bindings
 
@@ -131,7 +131,7 @@ Change it to:
         ....    
         <mousebind action="Press" button="Right">
             <action name="Execute">
-                <command>kernladung.californium toggle</command>
+                <command>mlde.californium toggle</command>
             </action>
         </context>
         ....
@@ -146,7 +146,7 @@ To add a keybind for ie Super-Key (windows key), add this to `~/.config/openbox/
         ....
         <keybind key="Super_L">
             <action name="Execute">
-                <command>kernladung.californium toggle</command>
+                <command>mlde.californium toggle</command>
             </action>
         </keybind>
         ....

@@ -31,15 +31,15 @@ SOFTWARE.
 #include <QIcon>
 
 
-namespace kernladung {
+namespace mlde {
 
 
-const QString DBUSNAME = "kernladung.Californium";
+const QString DBUSNAME = "mlde.Californium";
 
 
 Californium::Californium(int &argc, char** argv):
     QApplication(argc, argv),
-    settings("kernladung", "californium")
+    settings("mlde", "californium")
 {
 	loadSettings();
     loadTheme();
@@ -62,14 +62,14 @@ Californium::~Californium()
 void
 Californium::loadSettings()
 {	
-	qInfo() << "kernladung::Californium::loadSettings() " << settings.fileName();
+	qInfo() << "mlde::Californium::loadSettings() " << settings.fileName();
 
 	QFile settingsFile(settings.fileName());
 
 	if (!settingsFile.exists())
 	{
-		qDebug() << "kernladung::Californium::loadSettings() " << settings.fileName() << " does not exists, create it with default values";
-		settings.setValue("theme", "/usr/share/kernladung/californium/themes/default/default.qss");
+		qDebug() << "mlde::Californium::loadSettings() " << settings.fileName() << " does not exists, create it with default values";
+		settings.setValue("theme", "/usr/share/mlde/californium/themes/default/default.qss");
 		settings.setValue("menu", "/etc/xdg/menus/sulfur-applications.menu");
 		settings.sync();
 	}
@@ -90,7 +90,7 @@ Californium::watchSettings()
 void
 Californium::fileChanged(QString fileName)
 {
-    qInfo() << "kernladung::Californium::fileChanged() " << fileName;
+    qInfo() << "mlde::Californium::fileChanged() " << fileName;
 
 
     if ( fileName == settings.value("theme").toString() )
@@ -120,20 +120,20 @@ Californium::loadTheme()
 {
 	QString theme = settings.value("theme").toString();
 
-	qInfo() << "kernladung::Californium::loadTheme() " << theme;
+	qInfo() << "mlde::Californium::loadTheme() " << theme;
     
 
     QFile qssFile(theme);
 
     if (!qssFile.exists())
     {
-        qCritical() << "kernladung::Californium::loadTheme() file " << theme << " does not exists";
+        qCritical() << "mlde::Californium::loadTheme() file " << theme << " does not exists";
         return;
     }
 
     if (!qssFile.open(QIODevice::ReadOnly))
     {
-        qCritical() << "kernladung::Californium::loadTheme() unable to open file " << theme;
+        qCritical() << "mlde::Californium::loadTheme() unable to open file " << theme;
         return;
     }
 
@@ -151,20 +151,20 @@ void
 Californium::readMenu()
 {
 	QString menu = settings.value("menu").toString();
-	qInfo() << "kernladung::Californium::readMenu() " << menu;
+	qInfo() << "mlde::Californium::readMenu() " << menu;
 
 
     QFile menuFile(menu);
     
     if (!menuFile.exists())
     {
-        qCritical() << "kernladung::Californium::readMenu() file " << menu << " does not exists";
+        qCritical() << "mlde::Californium::readMenu() file " << menu << " does not exists";
         return;
     }
 
     if (!menuFile.open(QIODevice::ReadOnly))
     {
-        qCritical() << "kernladung::Californium::loadTheme() unable to open file " << menu;
+        qCritical() << "mlde::Californium::loadTheme() unable to open file " << menu;
         return;
     }
 
@@ -173,7 +173,7 @@ Californium::readMenu()
 
     if (!xdgMenu.read(menu))
     {
-        qCritical() << "kernladung::Californium::readMenu() error reading file " << menu << " : " << xdgMenu.errorString();
+        qCritical() << "mlde::Californium::readMenu() error reading file " << menu << " : " << xdgMenu.errorString();
         return;
     }
 
@@ -189,7 +189,7 @@ Californium::buildMenu()
         delete menu;
     }
 
-    menu = new XdgMenuWidget(xdgMenu, "kernladung::Californium");
+    menu = new XdgMenuWidget(xdgMenu, "mlde::Californium");
 
     menu->ensurePolished();
     menu->installEventFilter(this);
@@ -213,7 +213,7 @@ Californium::toggle()
 {
     if (!menu)
     {
-        qCritical() << "kernladung::Californium::toggle() menu is null";
+        qCritical() << "mlde::Californium::toggle() menu is null";
         return;
     }
 
@@ -234,7 +234,7 @@ Californium::show()
 {
     if (!menu)
     {
-        qCritical() << "kernladung::Californium::show() menu is null";
+        qCritical() << "mlde::Californium::show() menu is null";
         return;
     }
 
@@ -249,7 +249,7 @@ Californium::registerToggle()
 
     if (!bus.isConnected())
     {
-        qCritical() << "kernladung::Californium::registerToggle() unable to connect to session bus";
+        qCritical() << "mlde::Californium::registerToggle() unable to connect to session bus";
         return;
     }
 
@@ -261,7 +261,7 @@ Californium::registerToggle()
              this,
              SLOT(toggle())))
     {
-        qCritical() << "kernladung::Californium::registerToggle() unable to connect to signal";
+        qCritical() << "mlde::Californium::registerToggle() unable to connect to signal";
         return;
     }
 }
@@ -274,7 +274,7 @@ Californium::sendToggle()
 
     if (!bus.isConnected())
     {
-        qCritical() << "kernladung::Californium::sendToggle() unable to connect to session bus";
+        qCritical() << "mlde::Californium::sendToggle() unable to connect to session bus";
         return false;
     }
 
@@ -283,7 +283,7 @@ Californium::sendToggle()
 
     if (!bus.send(m))
     {
-        qCritical() << "kernladung::Californium::sendToggle() sending signal failed: " << m.errorMessage();
+        qCritical() << "mlde::Californium::sendToggle() sending signal failed: " << m.errorMessage();
         return false;
     }
 

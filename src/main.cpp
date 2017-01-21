@@ -29,7 +29,7 @@ SOFTWARE.
 int
 main(int argc, char *argv[])
 {
-    kernladung::Californium californium(argc, argv);
+    mlde::Californium californium(argc, argv);
 
     if ( californium.arguments().contains("toggle"))
     {

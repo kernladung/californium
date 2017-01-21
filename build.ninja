@@ -1,4 +1,3 @@
-
 includes = -Isrc -I/usr/include -I/usr/include/qt -I/usr/include/qt/QtWidgets -I/usr/include/qt/QtGui -I/usr/include/qt/QtDBus -I/usr/include/qt/QtCore
 
 
@@ -14,7 +13,11 @@ rule moc
 
 
 build build/moc_californium.cpp: moc src/californium.h
+
+
 build build/main.o: cpp src/main.cpp
 build build/californium.o: cpp src/californium.cpp
 build build/moc_californium.o: cpp build/moc_californium.cpp
-build build/kernladung.californium: link build/californium.o build/main.o build/moc_californium.o
+
+
+build build/mlde.californium: link build/californium.o build/main.o build/moc_californium.o
