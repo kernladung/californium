@@ -1,5 +1,3 @@
 .vscode
-build/*.cpp
-build/*.o
-build/*.d
+build/*
 .ninja*
