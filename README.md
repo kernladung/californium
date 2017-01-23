@@ -43,7 +43,7 @@ To build *californium* open a terminal in the root folder of the repository and:
 
 ### Build
 
-A build `mlde.californium` is provided in the build dir. It was build on my arch64 system.
+A build `mlde-californium` is provided in `data/usr/bin`. It was build on my arch64 system.
 
 
 # Install it
@@ -156,7 +156,7 @@ See http://openbox.org/wiki/Help:Configuration for reference.
 
 
 
-# Uinstall it
+# Uninstall it
 
 To uninstall *californium* open a terminal in the root folder of the repository and:
 
