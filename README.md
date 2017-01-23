@@ -63,7 +63,7 @@ To install *californium* open a terminal in the root folder of the repository an
 If none of these exists, it will create `~/.config/mlde/californium.conf` with default values:
 
     menu=/etc/xdg/menus/sulfur-applications.menu
-    theme=/usr/share/mlde/californium/themes/default.qss
+    theme=/usr/share/mlde-californium/themes/default.qss
 
 Used config-files and theme-files are monitored and changes are applied automatically.
 
@@ -76,7 +76,7 @@ Menu-files are typically placed in `/etc/xdg/menus/`. Directory-files are typica
 
 
 ### Themes
-In the default-conf the path to the theme is set to `/usr/share/mlde/californium/themes/default/default.qss`. You can simply change that path in the conf-file ie `~/.config/mlde/californium.conf`. Any url's in the qss may be relative to the path of the qss-file.
+In the default-conf the path to the theme is set to `/usr/share/mlde-californium/themes/default/default.qss`. You can simply change that path in the conf-file ie `~/.config/mlde/californium.conf`. Any url's in the qss may be relative to the path of the qss-file.
 
 See http://doc.qt.io/qt-5/stylesheet-examples.html#customizing-qmenu for specific and http://doc.qt.io/qt-5/stylesheet-syntax.html for general reference.
 
@@ -91,15 +91,15 @@ See https://wiki.archlinux.org/index.php/qt#Configuration_of_Qt5_apps_under_envi
 
 # Run it
 
-*californium* provides the binary `mlde.californium` which starts a QT Application without a visible GUI, but with the application menu. It then listens to a specific DBus Signal to toggle this menu. The signal can be send with `mlde.californium toggle`, the menu pops up.
+*californium* provides the binary `mlde-californium` which starts a QT Application without a visible GUI, but with the application menu. It then listens to a specific DBus Signal to toggle this menu. The signal can be send with `mlde.californium toggle`, the menu pops up.
 
 Start *californium* as background process:
 
-    $ mlde.californium &
+    $ mlde-californium &
 
 Send signal to toggle/show menu:
 
-    $ mlde.californium toggle
+    $ mlde-californium toggle
 
 
 
@@ -111,7 +111,7 @@ To replace the build-in menu in openbox with *californium*, do this:
 
 Add entry to `~/.config/openbox/autostart`:
 
-    mlde.californium &
+    mlde-californium &
 
 ### Mouse bindings
 
