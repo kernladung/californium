@@ -1,3 +1,6 @@
+# 01/23/2017
+- added install/uninstall support
+
 # 01/21/2017
 - changed namespace from kernladung to mlde
 

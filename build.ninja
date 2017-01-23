@@ -1,5 +1,6 @@
-includes = -Isrc -I/usr/include -I/usr/include/qt -I/usr/include/qt/QtWidgets -I/usr/include/qt/QtGui -I/usr/include/qt/QtDBus -I/usr/include/qt/QtCore
+######  BUILD  ######
 
+includes = -Isrc -I/usr/include -I/usr/include/qt -I/usr/include/qt/QtWidgets -I/usr/include/qt/QtGui -I/usr/include/qt/QtDBus -I/usr/include/qt/QtCore
 
 rule cpp
     depfile = $out.d
@@ -11,13 +12,26 @@ rule link
 rule moc
     command = moc $includes -o $out $in
 
-
 build build/moc_californium.cpp: moc src/californium.h
-
 
 build build/main.o: cpp src/main.cpp
 build build/californium.o: cpp src/californium.cpp
 build build/moc_californium.o: cpp build/moc_californium.cpp
 
+build data/usr/bin/mlde-californium: link build/californium.o build/main.o build/moc_californium.o
 
-build build/mlde.californium: link build/californium.o build/main.o build/moc_californium.o
+default data/usr/bin/mlde-californium
+
+
+######  INSTALL  ######
+
+rule install
+    command = cp -r data/* /
+
+build install: install
+
+
+rule uninstall
+    command = rm -r /usr/share/mlde-californium /usr/bin/mlde-californium
+
+build uninstall: uninstall

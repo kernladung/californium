@@ -48,7 +48,7 @@ A build `mlde.californium` is provided in the build dir. It was build on my arch
 
 # Install it
 
-(in development, currently does not work!)
+To install *californium* open a terminal in the root folder of the repository and:
 
     $ sudo ninja install
 
@@ -154,6 +154,15 @@ To add a keybind for ie Super-Key (windows key), add this to `~/.config/openbox/
 
 See http://openbox.org/wiki/Help:Configuration for reference.
 
+
+
+# Uinstall it
+
+To uninstall *californium* open a terminal in the root folder of the repository and:
+
+    $ sudo ninja uninstall
+
+Of course, you have to reset any settings ie in openbox too.
 
 
 # Credits
