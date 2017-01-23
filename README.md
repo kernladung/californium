@@ -131,7 +131,7 @@ Change it to:
         ....    
         <mousebind action="Press" button="Right">
             <action name="Execute">
-                <command>mlde.californium toggle</command>
+                <command>mlde-californium toggle</command>
             </action>
         </context>
         ....
@@ -146,7 +146,7 @@ To add a keybind for ie Super-Key (windows key), add this to `~/.config/openbox/
         ....
         <keybind key="Super_L">
             <action name="Execute">
-                <command>mlde.californium toggle</command>
+                <command>mlde-californium toggle</command>
             </action>
         </keybind>
         ....
