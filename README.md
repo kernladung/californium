@@ -91,7 +91,7 @@ See https://wiki.archlinux.org/index.php/qt#Configuration_of_Qt5_apps_under_envi
 
 # Run it
 
-*californium* provides the binary `mlde-californium` which starts a QT Application without a visible GUI, but with the application menu. It then listens to a specific DBus Signal to toggle this menu. The signal can be send with `mlde.californium toggle`, the menu pops up.
+*californium* provides the binary `mlde-californium` which starts a QT Application without a visible GUI, but with the application menu. It then listens to a specific DBus Signal to toggle this menu. The signal can be send with `mlde-californium toggle`, the menu pops up.
 
 Start *californium* as background process:
 
