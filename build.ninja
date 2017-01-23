@@ -32,6 +32,6 @@ build install: install
 
 
 rule uninstall
-    command = rm -r /usr/share/mlde-californium /usr/bin/mlde-californium
+    command = rm -r /usr/share/mlde-californium & rm /usr/bin/mlde-californium
 
 build uninstall: uninstall
