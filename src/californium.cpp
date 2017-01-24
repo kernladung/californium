@@ -69,7 +69,7 @@ Californium::loadSettings()
 	if (!settingsFile.exists())
 	{
 		qDebug() << "mlde::Californium::loadSettings() " << settings.fileName() << " does not exists, create it with default values";
-		settings.setValue("theme", "/usr/share/mlde/californium/themes/default/default.qss");
+		settings.setValue("theme", "/usr/share/mlde-californium/themes/default/default.qss");
 		settings.setValue("menu", "/etc/xdg/menus/sulfur-applications.menu");
 		settings.sync();
 	}

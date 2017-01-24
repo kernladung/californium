@@ -28,11 +28,11 @@ A standalone application menu based on xdg and qt, notably for openbox, awesome,
 
 # Build it
 
-*californium* uses [clang](http://clang.llvm.org/) as compiler, [g++](https://gcc.gnu.org/) as linker and [ninja](https://github.com/ninja-build/ninja) as build-tool. 
+*californium* uses [clang](http://clang.llvm.org/) as compiler, [g++](https://gcc.gnu.org/) as linker and [make](https://www.gnu.org/software/make/) as build-tool. 
 
 To build *californium* open a terminal in the root folder of the repository and:
 
-    $ ninja
+    $ make
 
 ### Dependencies
 - Qt5Xdg
@@ -50,7 +50,7 @@ A build `mlde-californium` is provided in `data/usr/bin`. It was build on my arc
 
 To install *californium* open a terminal in the root folder of the repository and:
 
-    $ sudo ninja install
+    $ sudo make install
 
 
 # Configure it
@@ -76,7 +76,7 @@ Menu-files are typically placed in `/etc/xdg/menus/`. Directory-files are typica
 
 
 ### Themes
-In the default-conf the path to the theme is set to `/usr/share/mlde-californium/themes/default/default.qss`. You can simply change that path in the conf-file ie `~/.config/mlde/californium.conf`. Any url's in the qss may be relative to the path of the qss-file.
+In the default-conf the path to the theme is set to the default theme `/usr/share/mlde-californium/themes/default/default.qss`. You can simply change that path in the conf-file ie `~/.config/mlde/californium.conf`. Any url's in the qss may be relative to the path of the qss-file.
 
 See http://doc.qt.io/qt-5/stylesheet-examples.html#customizing-qmenu for specific and http://doc.qt.io/qt-5/stylesheet-syntax.html for general reference.
 
@@ -160,7 +160,7 @@ See http://openbox.org/wiki/Help:Configuration for reference.
 
 To uninstall *californium* open a terminal in the root folder of the repository and:
 
-    $ sudo ninja uninstall
+    $ sudo make uninstall
 
 Of course, you have to reset any settings ie in openbox too.
 

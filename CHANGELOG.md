@@ -1,3 +1,7 @@
+# 01/24/2017
+- changed built-tool back to makefile
+- bugfixes
+
 # 01/23/2017
 - added install/uninstall support
 
