@@ -37,7 +37,6 @@ clean:
 
 install:
 	cp -r data/* /
-	cp build/mlde-californium /usr/bin/
 
 
 ######  UNINSTALL  ######
