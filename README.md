@@ -133,7 +133,7 @@ Change it to:
             <action name="Execute">
                 <command>mlde-californium toggle</command>
             </action>
-        </context>
+        </mousebind>
         ....
     </context>
 
