@@ -25,18 +25,18 @@ SOFTWARE.
 */
 
 
-#include "menu.h"
+#include "app.h"
 
 
 int
 main(int argc, char *argv[])
 {
-    Californium::Menu menu(argc, argv);
+    Californium::App app(argc, argv);
 
-    if ( menu.arguments().contains("toggle"))
+    if ( app.arguments().contains("toggle"))
     {
-        return menu.sendToggle();
+        return app.sendToggle();
     }
 
-    return menu.exec();
+    return app.exec();
 }

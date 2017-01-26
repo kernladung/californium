@@ -38,13 +38,13 @@ SOFTWARE.
 namespace Californium {
 
 
-class Menu : public QApplication
+class App : public QApplication
 {
     Q_OBJECT
 
 public:
-    explicit Menu(int &argc, char** argv);
-    ~Menu();
+    explicit App(int &argc, char** argv);
+    ~App();
 
     int sendToggle();
 
