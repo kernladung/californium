@@ -111,7 +111,7 @@ To replace the build-in menu in openbox with *californium*, do this:
 
 Add entry to `~/.config/openbox/autostart`:
 
-    mlde-californium &
+    californium &
 
 ### Mouse bindings
 
