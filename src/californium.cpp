@@ -31,7 +31,7 @@ SOFTWARE.
 #include <QIcon>
 
 
-const QString DBUSNAME = "Californium";
+const QString DBUSNAME = "californium.californium";
 
 
 Californium::Californium(int &argc, char** argv):

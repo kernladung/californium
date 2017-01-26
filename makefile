@@ -3,7 +3,7 @@
 INCLUDES = -Isrc -I/usr/include -I/usr/include/qt -I/usr/include/qt/QtWidgets -I/usr/include/qt/QtGui -I/usr/include/qt/QtDBus -I/usr/include/qt/QtCore
 COMPILER = clang -std=c++11 -Wall -O3 -fPIC -MMD $(INCLUDES) -c $< -o $@
 MOC = moc $(INCLUDES) -o $@ $<
-LINKER = g++ -o $@ $? -lQt5Xdg -lQt5Widgets -lQt5Gui -lQt5DBus -lQt5Core
+LINKER = g++ -o $@ $^ -lQt5Xdg -lQt5Widgets -lQt5Gui -lQt5DBus -lQt5Core
 MKDIR = mkdir -p $(dir $@)
 
 
