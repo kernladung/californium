@@ -23,18 +23,18 @@ SOFTWARE.
 */
 
 
-#include "californium.h"
+#include "menu.h"
 
 
 int
 main(int argc, char *argv[])
 {
-    Californium californium(argc, argv);
+    Californium::Menu menu(argc, argv);
 
-    if ( californium.arguments().contains("toggle"))
+    if ( menu.arguments().contains("toggle"))
     {
-        return californium.sendToggle();
+        return menu.sendToggle();
     }
 
-    return californium.exec();
+    return menu.exec();
 }

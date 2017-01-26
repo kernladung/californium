@@ -12,7 +12,7 @@ MKDIR = mkdir -p $(dir $@)
 .SECONDARY:
 
 
-data/usr/bin/californium: build/californium.o build/main.o build/moc_californium.o
+data/usr/bin/californium: build/main.o build/menu.o build/moc_menu.o
 	$(MKDIR)
 	$(LINKER)
 

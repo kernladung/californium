@@ -31,16 +31,18 @@ SOFTWARE.
 #include <QApplication>
 #include <QSettings>
 #include <QFileSystemWatcher>
-#include <QXmlStreamReader>
 
 
-class Californium : public QApplication
+namespace Californium {
+
+
+class Menu : public QApplication
 {
     Q_OBJECT
 
 public:
-    explicit Californium(int &argc, char** argv);
-    ~Californium();
+    explicit Menu(int &argc, char** argv);
+    ~Menu();
 
     int sendToggle();
 
@@ -72,3 +74,6 @@ private slots:
     void show();
 
 };
+
+
+} // namespace
