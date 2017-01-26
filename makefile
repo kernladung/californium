@@ -12,7 +12,7 @@ MKDIR = mkdir -p $(dir $@)
 .SECONDARY:
 
 
-data/usr/bin/mlde-californium: build/californium.o build/main.o build/moc_californium.o
+data/usr/bin/californium: build/californium.o build/main.o build/moc_californium.o
 	$(MKDIR)
 	$(LINKER)
 
@@ -35,7 +35,7 @@ build/moc_%.cpp: src/%.h
 
 clean:
 	rm -f build/*
-	rm -f data/usr/bin/mlde-californium
+	rm -f data/usr/bin/californium
 
 
 ######  INSTALL  ######
@@ -47,8 +47,8 @@ install:
 ######  UNINSTALL  ######
 
 uninstall:
-	rm -f -r /usr/share/mlde-californium
-	rm -f /usr/bin/mlde-californium
+	rm -f -r /usr/share/californium
+	rm -f /usr/bin/californium
 
 
 .PHONY: clean install uninstall

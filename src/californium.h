@@ -34,9 +34,6 @@ SOFTWARE.
 #include <QXmlStreamReader>
 
 
-namespace mlde {
-
-
 class Californium : public QApplication
 {
     Q_OBJECT
@@ -75,6 +72,3 @@ private slots:
     void show();
 
 };
-
-
-} // namespace
