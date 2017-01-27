@@ -25,18 +25,18 @@ SOFTWARE.
 */
 
 
-#include "app.h"
+#include "californium.h"
 
 
 int
 main(int argc, char *argv[])
 {
-    Californium::App app(argc, argv);
+    Californium californium(argc, argv);
 
-    if ( app.arguments().contains("toggle"))
+    if ( californium.arguments().contains("toggle"))
     {
-        return app.sendToggle();
+        return californium.sendToggle();
     }
 
-    return app.exec();
+    return californium.exec();
 }

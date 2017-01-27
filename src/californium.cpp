@@ -25,7 +25,7 @@ SOFTWARE.
 */
 
 
-#include "app.h"
+#include "californium.h"
 #include <QKeyEvent>
 #include <qt5xdg/XdgMenuWidget>
 #include <QDebug>
@@ -33,13 +33,10 @@ SOFTWARE.
 #include <QIcon>
 
 
-namespace Californium {
+const QString DBUSNAME = "californium.menu";
 
 
-const QString DBUSNAME = "californium.app";
-
-
-App::App(int &argc, char** argv):
+Californium::Californium(int &argc, char** argv):
     QApplication(argc, argv),
     settings("californium", "californium")
 {
@@ -55,22 +52,22 @@ App::App(int &argc, char** argv):
 }
 
 
-App::~App()
+Californium::~Californium()
 {
     delete menu;
 }
 
 
 void
-App::loadSettings()
+Californium::loadSettings()
 {	
-	qInfo() << "App::loadSettings() " << settings.fileName();
+	qInfo() << "Californium::loadSettings() " << settings.fileName();
 
 	QFile settingsFile(settings.fileName());
 
 	if (!settingsFile.exists())
 	{
-		qDebug() << "App::loadSettings() " << settings.fileName() << " does not exists, created it with default values:";
+		qDebug() << "Californium::loadSettings() " << settings.fileName() << " does not exists, created it with default values:";
 		settings.setValue("theme", "/usr/share/californium/themes/default/default.qss");
 		settings.setValue("menu", "/etc/xdg/menus/sulfur-applications.menu");
 		settings.sync();
@@ -79,7 +76,7 @@ App::loadSettings()
 
 
 void
-App::watchSettings()
+Californium::watchSettings()
 {    
 	watcher.addPath(settings.fileName());
 	watcher.addPath(settings.value("theme").toString());
@@ -90,9 +87,9 @@ App::watchSettings()
 
 
 void
-App::fileChanged(QString fileName)
+Californium::fileChanged(QString fileName)
 {
-    qInfo() << "App::fileChanged() " << fileName;
+    qInfo() << "Californium::fileChanged() " << fileName;
 
 
     if ( fileName == settings.value("theme").toString() )
@@ -118,24 +115,24 @@ App::fileChanged(QString fileName)
 
 
 void
-App::loadTheme()
+Californium::loadTheme()
 {
 	QString theme = settings.value("theme").toString();
 
-	qInfo() << "App::loadTheme() " << theme;
+	qInfo() << "Californium::loadTheme() " << theme;
     
 
     QFile qssFile(theme);
 
     if (!qssFile.exists())
     {
-        qCritical() << "App::loadTheme() file " << theme << " does not exists";
+        qCritical() << "Californium::loadTheme() file " << theme << " does not exists";
         return;
     }
 
     if (!qssFile.open(QIODevice::ReadOnly))
     {
-        qCritical() << "App::loadTheme() unable to open file " << theme;
+        qCritical() << "Californium::loadTheme() unable to open file " << theme;
         return;
     }
 
@@ -150,23 +147,23 @@ App::loadTheme()
 
 
 void
-App::readMenu()
+Californium::readMenu()
 {
 	QString menu = settings.value("menu").toString();
-	qInfo() << "App::readMenu() " << menu;
+	qInfo() << "Californium::readMenu() " << menu;
 
 
     QFile menuFile(menu);
     
     if (!menuFile.exists())
     {
-        qCritical() << "App::readMenu() file " << menu << " does not exists";
+        qCritical() << "Californium::readMenu() file " << menu << " does not exists";
         return;
     }
 
     if (!menuFile.open(QIODevice::ReadOnly))
     {
-        qCritical() << "App::loadTheme() unable to open file " << menu;
+        qCritical() << "Californium::loadTheme() unable to open file " << menu;
         return;
     }
 
@@ -175,7 +172,7 @@ App::readMenu()
 
     if (!xdgMenu.read(menu))
     {
-        qCritical() << "App::readMenu() error reading file " << menu << " : " << xdgMenu.errorString();
+        qCritical() << "Californium::readMenu() error reading file " << menu << " : " << xdgMenu.errorString();
         return;
     }
 
@@ -184,7 +181,7 @@ App::readMenu()
 
 
 void
-App::buildMenu()
+Californium::buildMenu()
 {
     if(menu)
     {
@@ -211,11 +208,11 @@ App::buildMenu()
 
 
 void
-App::toggle()
+Californium::toggle()
 {
     if (!menu)
     {
-        qCritical() << "App::toggle() menu is null";
+        qCritical() << "Californium::toggle() menu is null";
         return;
     }
 
@@ -232,11 +229,11 @@ App::toggle()
 }
 
 void
-App::show()
+Californium::show()
 {
     if (!menu)
     {
-        qCritical() << "App::show() menu is null";
+        qCritical() << "Californium::show() menu is null";
         return;
     }
 
@@ -245,13 +242,13 @@ App::show()
 
 
 void
-App::registerToggle()
+Californium::registerToggle()
 {
     QDBusConnection bus = QDBusConnection::sessionBus();
 
     if (!bus.isConnected())
     {
-        qCritical() << "App::registerToggle() unable to connect to session bus";
+        qCritical() << "Californium::registerToggle() unable to connect to session bus";
         return;
     }
 
@@ -263,20 +260,20 @@ App::registerToggle()
              this,
              SLOT(toggle())))
     {
-        qCritical() << "App::registerToggle() unable to connect to signal";
+        qCritical() << "Californium::registerToggle() unable to connect to signal";
         return;
     }
 }
 
 
 int
-App::sendToggle()
+Californium::sendToggle()
 {
     QDBusConnection bus = QDBusConnection::sessionBus();
 
     if (!bus.isConnected())
     {
-        qCritical() << "App::sendToggle() unable to connect to session bus";
+        qCritical() << "Californium::sendToggle() unable to connect to session bus";
         return false;
     }
 
@@ -285,7 +282,7 @@ App::sendToggle()
 
     if (!bus.send(m))
     {
-        qCritical() << "App::sendToggle() sending signal failed: " << m.errorMessage();
+        qCritical() << "Californium::sendToggle() sending signal failed: " << m.errorMessage();
         return false;
     }
 
@@ -302,7 +299,7 @@ struct MatchAction
 
 
 bool
-App::eventFilter(QObject *obj, QEvent *event)
+Californium::eventFilter(QObject *obj, QEvent *event)
 {
     QMenu* menu = qobject_cast<QMenu*>(obj);
 
@@ -339,6 +336,3 @@ App::eventFilter(QObject *obj, QEvent *event)
 
     return false;
 }
-
-
-} // namespace

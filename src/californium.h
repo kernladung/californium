@@ -35,16 +35,13 @@ SOFTWARE.
 #include <QFileSystemWatcher>
 
 
-namespace Californium {
-
-
-class App : public QApplication
+class Californium : public QApplication
 {
     Q_OBJECT
 
 public:
-    explicit App(int &argc, char** argv);
-    ~App();
+    explicit Californium(int &argc, char** argv);
+    ~Californium();
 
     int sendToggle();
 
@@ -76,6 +73,3 @@ private slots:
     void show();
 
 };
-
-
-} // namespace
