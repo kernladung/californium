@@ -1,2 +1,4 @@
 - set icontheme via option in conf-file
 - replace qt5xdg lib with our own xdg-lib
+- move todo to github issues
+- use releases and issues as changelog
