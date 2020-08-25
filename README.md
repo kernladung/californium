@@ -28,11 +28,7 @@ A standalone application menu based on xdg and qt, notably for openbox, awesome,
 
 # Build it
 
-*californium* uses [clang](http://clang.llvm.org/) as compiler, [g++](https://gcc.gnu.org/) as linker and [make](https://www.gnu.org/software/make/) as build-tool. 
-
-To build *californium* open a terminal in the root folder of the repository and:
-
-    $ make
+[missing]
 
 ### Dependencies
 - Qt5Xdg
@@ -48,9 +44,7 @@ A build `californium` is provided in `data/usr/bin`. It was build on my arch64 s
 
 # Install it
 
-To install *californium* open a terminal in the root folder of the repository and:
-
-    $ sudo make install
+[missing]
 
 
 # Configure it
@@ -70,7 +64,7 @@ Used config-files and theme-files are monitored and changes are applied automati
 
 ### Predefined menu-file
 
-[sulfur](https://github.com/mlde/sulfur) provides a predefined menu-file and directory-files that work well with *californium*. To use an existing or new menu-file simply point to this menu-file in the conf-file.
+[europium](https://github.com/mlde/europium) provides a predefined menu-file and [holmium](https://github.com/mlde/holmium ) provides directory-files that work well with *californium*. To use an existing or new menu-file simply point to this menu-file in the conf-file.
 
 Menu-files are typically placed in `/etc/xdg/menus/`. Directory-files are typically placed in `/usr/share/desktop-directories`.
 
